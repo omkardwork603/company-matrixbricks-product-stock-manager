@@ -1,6 +1,6 @@
 # Product Stock Manager
 
-A web-based Inventory Management System built with Laravel and MySQL to manage products, categories, pricing, and stock movements. The application provides stock tracking, low-stock alerts, search and filtering, and a history of stock additions and removals.
+A web-based Product Stock Manager built with Laravel and MySQL to manage products, categories, pricing, and stock movements. The application provides stock tracking, low-stock alerts, search and filtering, and a history of stock additions and removals.
 
 ## Features
 
