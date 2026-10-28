@@ -162,7 +162,7 @@ Stock history is displayed in newest-first order on the Product Details page.
 ```text
 ## Project Structure
 
-inventory-management-system/
+product-stock-manager/
 ├── app/
 │   ├── Http/
 │   │   └── Controllers/
