@@ -193,7 +193,7 @@ inventory-management-system/
 
 ## Demo Login Credentials
 
-Use the following demo account to access the Inventory Management System.
+Use the following demo account to access the Product Stock Manager.
 
 | Field | Value |
 |---|---|
