@@ -11,7 +11,7 @@
                         </svg>
                     </div>
                     <span class="text-lg font-black tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors">
-                        Inventorypanel
+                        Product Stock Manager
                     </span>
                 </a>
 
