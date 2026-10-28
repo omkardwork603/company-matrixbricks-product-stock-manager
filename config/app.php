@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Inventorypanel'),
+    'name' => env('APP_NAME', 'Product Stock Manager'),
 
     /*
     |--------------------------------------------------------------------------
