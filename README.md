@@ -161,7 +161,6 @@ Stock history is displayed in newest-first order on the Product Details page.
 
 ## Project Structure
 
-```text
 inventory-management-system/
 ├── app/
 │   ├── Http/
@@ -188,9 +187,23 @@ inventory-management-system/
 ├── composer.json
 ├── package.json
 └── README.md
-```
 
 *The structure above is representative. Adjust it if your actual project uses different filenames or folders.*
+
+
+
+
+
+
+
+## Demo Login Credentials
+
+Use the following demo account to access the Inventory Management System.
+
+| Field | Value |
+|---|---|
+| Email | `admin@example.com` |
+| Password | `Admin@12345` |
 
 ## Application Routes
 | Method    | Route                           | Purpose                                |
