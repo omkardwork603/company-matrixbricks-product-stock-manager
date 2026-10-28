@@ -159,6 +159,7 @@ Each successful stock movement stores information such as:
 
 Stock history is displayed in newest-first order on the Product Details page.
 
+```text
 ## Project Structure
 
 inventory-management-system/
@@ -187,7 +188,7 @@ inventory-management-system/
 ├── composer.json
 ├── package.json
 └── README.md
-
+```
 *The structure above is representative. Adjust it if your actual project uses different filenames or folders.
 
 ## Demo Login Credentials
