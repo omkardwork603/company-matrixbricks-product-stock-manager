@@ -1,58 +1,242 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Inventory Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A web-based Inventory Management System built with Laravel and MySQL to manage products, categories, pricing, and stock movements. The application provides stock tracking, low-stock alerts, search and filtering, and a history of stock additions and removals.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Product Management** — Create, view, update, and delete products.
+- **Category Management** — Organize products by category.
+- **Stock In** — Add inventory with quantity and an optional note.
+- **Stock Out** — Remove inventory while preventing stock from becoming negative.
+- **Stock History** — Track stock additions and removals with dates, quantities, types, and notes.
+- **Low-Stock Alerts** — Highlight products with fewer than 5 units in stock.
+- **Search and Filtering** — Search products by name and filter by category.
+- **Pagination** — Display products across multiple pages.
+- **Authentication** — Protect application routes using Laravel authentication middleware.
+- **Success and Validation Messages** — Display feedback after operations and when validation fails.
+- **Responsive Interface** — Build a user interface using Tailwind CSS and Blade templates.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Technology Stack
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+| Technology | Purpose |
+|---|---|
+| PHP | Backend programming |
+| Laravel 13 | Backend framework |
+| MySQL | Database |
+| Laravel Blade | Server-rendered views |
+| Tailwind CSS | UI styling |
+| Alpine.js | Interactive stock modals |
+| Laravel Breeze | Authentication scaffolding |
+| Git and GitHub | Version control |
 
-## Learning Laravel
+## Installation and Setup
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### 1. Clone the repository
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone YOUR_GITHUB_REPOSITORY_URL
+cd YOUR_PROJECT_FOLDER
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Replace the repository URL and folder name with your actual values.
 
-## Contributing
+### 2. Install PHP dependencies
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+composer install
+```
 
-## Code of Conduct
+### 3. Configure environment variables
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Copy the example environment file.
 
-## Security Vulnerabilities
+```bash
+copy .env.example .env
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+On macOS or Linux, use:
 
-## License
+```bash
+cp .env.example .env
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Generate the application key:
+
+```bash
+php artisan key:generate
+```
+
+### 4. Create the database
+
+Create a MySQL database using phpMyAdmin or your preferred MySQL client.
+
+For example:
+
+```sql
+CREATE DATABASE inventory-panel;
+```
+
+Update the database settings in your `.env` file:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=inventory-panel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Use the credentials configured on your own machine.
+
+### 5. Run database migrations
+
+```bash
+php artisan migrate
+```
+
+This creates the database tables defined by the project's migrations.
+
+### 6. Install frontend dependencies
+
+If the project includes `package.json`, install the dependencies:
+
+```bash
+npm install
+```
+
+Build the frontend assets:
+
+```bash
+npm run build
+```
+
+For local development, you can use:
+
+```bash
+npm run dev
+```
+
+### 7. Start the Laravel application
+
+```bash
+php artisan serve
+```
+
+Open the application in your browser:
+
+```text
+http://127.0.0.1:8000
+```
+
+If authentication is provided through Laravel Breeze, register an account or sign in to access protected routes.
+
+## Stock Management Logic
+
+### Stock In
+
+- Accepts a positive integer quantity.
+- Increases the product's current stock.
+- Records the movement in the stock history table.
+- Supports an optional note.
+
+### Stock Out
+
+- Accepts a positive integer quantity.
+- Checks that sufficient stock is available.
+- Prevents stock from becoming negative.
+- Records the movement only when the operation succeeds.
+
+### Stock History
+
+Each successful stock movement stores information such as:
+
+- Product ID
+- Movement type (`in` or `out`)
+- Quantity
+- Optional note
+- Creation timestamp
+
+Stock history is displayed in newest-first order on the Product Details page.
+
+## Project Structure
+
+```text
+inventory-management-system/
+├── app/
+│   ├── Http/
+│   │   └── Controllers/
+│   │       ├── ProductController.php
+│   │       ├── CategoryController.php
+│   │       └── StockController.php
+│   └── Models/
+│       ├── Product.php
+│       ├── Category.php
+│       └── StockHistory.php
+│       └── StockMovement.php
+├── database/
+│   └── migrations/
+├── resources/
+│   └── views/
+│       ├── auth/
+│       ├── categories/
+│       ├── components/
+│       ├── products/
+├── routes/
+│   └── web.php
+├── .env.example
+├── composer.json
+├── package.json
+└── README.md
+```
+
+*The structure above is representative. Adjust it if your actual project uses different filenames or folders.*
+
+## Application Routes
+| Method    | Route                           | Purpose                                |
+| --------- | ------------------------------- | -------------------------------------- |
+| GET       | `/products`                     | List products                          |
+| GET       | `/products/create`              | Show product creation form             |
+| POST      | `/products`                     | Create a product                       |
+| GET       | `/products/{product}`           | View product details and stock history |
+| GET       | `/products/{product}/edit`      | Show product edit form                 |
+| PUT/PATCH | `/products/{product}`           | Update a product                       |
+| DELETE    | `/products/{product}`           | Delete a product                       |
+| GET       | `/categories`                   | List categories                        |
+| GET       | `/categories/create`            | Show category creation form            |
+| POST      | `/categories`                   | Create a category                      |
+| GET       | `/categories/{category}`        | View category details                  |
+| GET       | `/categories/{category}/edit`   | Show category edit form                |
+| PUT/PATCH | `/categories/{category}`        | Update a category                      |
+| DELETE    | `/categories/{category}`        | Delete a category                      |
+
+These routes match Laravel's `Route::resource()` conventions for products and categories, plus your custom stock movement routes. The category details route exists only if you retain the resource's `show` action in your routes and controller.
+
+These routes are protected by authentication middleware in the application.
+
+## Validation and Data Integrity
+
+- Product names and category selections are validated.
+- Price and stock values are validated before saving.
+- Stock movement quantities must be positive integers.
+- Stock Out checks available stock on the server.
+- Database transactions help keep stock updates and stock history records consistent.
+
+## Future Improvements
+
+- Role-based access control for administrators and staff.
+- Dashboard with inventory statistics and charts.
+- Product SKU and barcode support.
+- Supplier and purchase management.
+- Sales and invoice management.
+- Export reports to CSV, Excel, or PDF.
+- Automated low-stock notifications.
+- Automated tests for product and stock operations.
+
+## Author
+
+**Omkar Deshmukh**
+
+PHP / Laravel Developer
+
+GitHub: Add your GitHub profile URL here.
