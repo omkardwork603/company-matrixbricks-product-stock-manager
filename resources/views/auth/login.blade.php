@@ -81,8 +81,8 @@
                     </div>
                     <div class="grid grid-cols-3 gap-3 pt-1">
                         <div class="bg-black/10 rounded-xl p-3 border border-white/10">
-                            <div class="text-xs text-indigo-200">Active Items</div>
-                            <div class="text-lg font-bold text-white mt-0.5">1,420+</div>
+                            <div class="text-xs text-indigo-200">Total Listed</div>
+                            <div class="text-lg font-bold text-white mt-0.5">10+ items</div>
                         </div>
                         <div class="bg-black/10 rounded-xl p-3 border border-white/10">
                             <div class="text-xs text-indigo-200">Low Stock</div>
@@ -178,9 +178,9 @@
                                 Password
                             </label>
                             @if (Route::has('password.request'))
-                                <a href="{{ route('password.request') }}" class="text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition">
+                                {{-- <a href="{{ route('password.request') }}" class="text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition">
                                     Forgot password?
-                                </a>
+                                </a> --}}
                             @endif
                         </div>
                         <div class="relative">
@@ -218,7 +218,7 @@
                     </div>
 
                     <!-- Remember Me -->
-                    <div class="flex items-center justify-between pt-1">
+                    {{-- <div class="flex items-center justify-between pt-1">
                         <label for="remember_me" class="inline-flex items-center cursor-pointer select-none">
                             <input id="remember_me" 
                                    name="remember" 
@@ -226,7 +226,7 @@
                                    class="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer">
                             <span class="ml-2 text-xs font-medium text-slate-600">Keep me logged in</span>
                         </label>
-                    </div>
+                    </div> --}}
 
                     <!-- Submit Button -->
                     <div>
@@ -242,12 +242,12 @@
                 </form>
 
                 @if (Route::has('register'))
-                    <div class="mt-8 text-center text-xs text-slate-500">
+                    {{-- <div class="mt-8 text-center text-xs text-slate-500">
                         Don't have an account yet? 
                         <a href="{{ route('register') }}" class="font-bold text-indigo-600 hover:text-indigo-700 hover:underline ml-1">
                             Register new account
                         </a>
-                    </div>
+                    </div> --}}
                 @endif
 
             </div>
