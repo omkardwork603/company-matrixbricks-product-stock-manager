@@ -188,13 +188,7 @@ inventory-management-system/
 ├── package.json
 └── README.md
 
-*The structure above is representative. Adjust it if your actual project uses different filenames or folders.*
-
-
-
-
-
-
+*The structure above is representative. Adjust it if your actual project uses different filenames or folders.
 
 ## Demo Login Credentials
 
